@@ -16,10 +16,17 @@ test_dir = '/content/drive/MyDrive/1 COMP 542/Project/full dataset/asl_alphabet_
 img_size = 64
 
 label_mapping = {chr(65 + i): i for i in range(26)}  # Mapping labels A-Z to 0-25
+<<<<<<< HEAD
 label_mapping.update({'del': 26, 'space': 27, 'nothing': 28})
 print(label_mapping)
 num_classes = len(label_mapping)
 
+=======
+num_classes = len(label_mapping)
+
+print(label_mapping)
+
+>>>>>>> f4e0f2b938fda7abb1ef25d223912831030fd147
 # Load test images and labels
 test_images = []
 test_labels = []
@@ -57,6 +64,11 @@ test_images = np.array(test_images)
 test_labels = np.array(test_labels)
 
 test_labels = to_categorical(test_labels, num_classes=num_classes)
+<<<<<<< HEAD
+=======
+
+print(test_labels)
+>>>>>>> f4e0f2b938fda7abb1ef25d223912831030fd147
 
 # Evaluate the model on the test set
 test_loss, test_accuracy = model.evaluate(test_images, test_labels)

@@ -1,7 +1,11 @@
 
 import numpy as np
 import os
+<<<<<<< HEAD
 
+=======
+import cv2
+>>>>>>> f4e0f2b938fda7abb1ef25d223912831030fd147
 from sklearn.model_selection import train_test_split
 from tensorflow.keras.utils import to_categorical
 from tensorflow.keras.models import Sequential
@@ -10,10 +14,43 @@ from tensorflow.keras.optimizers import Adam
 from tensorflow.keras.preprocessing.image import ImageDataGenerator
 import matplotlib.pyplot as plt
 
+<<<<<<< HEAD
 images = np.load('/content/drive/MyDrive/1 COMP 542/Project/aslConverter/images.npy')
 labels = np.load('/content/drive/MyDrive/1 COMP 542/Project/aslConverter/labels.npy')
 img_size = 64
 
+=======
+# Paths to the training and testing datasets
+train_dir = '/content/drive/MyDrive/1 COMP 542/Project/full dataset/asl_alphabet_train'
+
+# Image dimensions
+img_size = 64
+
+# Initialize lists to store images and labels
+images = []
+labels = []
+
+# Load training images
+for label in os.listdir(train_dir):
+    label_path = os.path.join(train_dir, label)
+    if os.path.isdir(label_path):
+        for img_file in os.listdir(label_path):
+            img_path = os.path.join(label_path, img_file)
+            # Read, resize, and normalize image
+
+            img = cv2.imread(img_path)
+            if img is None:
+                continue
+            img = cv2.resize(img, (img_size, img_size))
+            img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB) / 255.0  # Normalize
+            images.append(img)
+            labels.append(label)
+
+# Convert lists to numpy arrays
+images = np.array(images)
+labels = np.array(labels)
+
+>>>>>>> f4e0f2b938fda7abb1ef25d223912831030fd147
 # Map labels to numeric values
 label_mapping = {label: idx for idx, label in enumerate(np.unique(labels))}
 labels = np.array([label_mapping[label] for label in labels])
