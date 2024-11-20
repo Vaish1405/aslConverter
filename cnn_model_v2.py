@@ -1,11 +1,7 @@
 
 import numpy as np
 import os
-<<<<<<< HEAD
-
-=======
 import cv2
->>>>>>> f4e0f2b938fda7abb1ef25d223912831030fd147
 from sklearn.model_selection import train_test_split
 from tensorflow.keras.utils import to_categorical
 from tensorflow.keras.models import Sequential
@@ -14,14 +10,9 @@ from tensorflow.keras.optimizers import Adam
 from tensorflow.keras.preprocessing.image import ImageDataGenerator
 import matplotlib.pyplot as plt
 
-<<<<<<< HEAD
 images = np.load('/content/drive/MyDrive/1 COMP 542/Project/aslConverter/images.npy')
 labels = np.load('/content/drive/MyDrive/1 COMP 542/Project/aslConverter/labels.npy')
 img_size = 64
-
-=======
-# Paths to the training and testing datasets
-train_dir = '/content/drive/MyDrive/1 COMP 542/Project/full dataset/asl_alphabet_train'
 
 # Image dimensions
 img_size = 64
@@ -50,7 +41,6 @@ for label in os.listdir(train_dir):
 images = np.array(images)
 labels = np.array(labels)
 
->>>>>>> f4e0f2b938fda7abb1ef25d223912831030fd147
 # Map labels to numeric values
 label_mapping = {label: idx for idx, label in enumerate(np.unique(labels))}
 labels = np.array([label_mapping[label] for label in labels])
