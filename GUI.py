@@ -220,6 +220,7 @@ class VideoCaptureWindow(QMainWindow):
 
     def update_video_feed(self):
         if self.cap:
+            ret, frame = self.cap.read() 
         if set:
             frame = cv2.flip(frame, 1)  # Flip the frame horizontally
             rgb_frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
